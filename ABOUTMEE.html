@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Noto+Sans+KR:wght@100;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT ME</title>
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <header>
+        <h1 class="Montserrat">ABOUT ME</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="lineyespage.html">Home</a></li>
+            <li><a href="https://drive.google.com/drive/folders/1-0dg90zFVN5zk6ajFFnCk1yEnZb6YjzS?usp=drive_link">More</a></li>
+            <li>
+                <a href="Contact.html">Contact</a>
+                <ul>
+                    <li><a onclick="sendEmail()">Email</a></li>
+                    <li><a href="https://www.instagram.com/linneyes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <div class="about-section">
+            <h1>About Me</h1>
+            <img src="perfil.jpg" alt="Perfil">
+            <p>Welcome to my space! I´m Paulina Vergara </p>
+            <p>A passionate photographer with a keen eye for capturing moments that tell stories. My journey through the lens has allowed me to explore diverse fields, from stunning landscapes to intimate portraits, each image reflecting the world through my unique perspective.</p>
+            <p> You can see some of my projects on the slide images: </p>
+        </div>
+
+        <div class="slider-container">
+            <div class="slider-content">
+                <div class="slider-item">
+                    <img src="imagen1.jpg" alt="Imagen 1">
+                </div>
+                <div class="slider-item">
+                    <img src="imagen2.jpg" alt="Imagen 2">
+                </div>
+                <div class="slider-item">
+                    <img src="imagen3.jpg" alt="Imagen 3">
+                </div>
+                <div class="slider-item">
+                <img src="imagen4.jpg" alt="Imagen 4">
+            </div>
+            <div class="slider-item">
+                <img src="imagen5.jpg" alt="Imagen ">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </main>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        function showSlides() {
+            const slides = document.querySelectorAll(".slider-item");
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+            const slideWidth = slides[0].clientWidth;
+            document.querySelector(".slider-content").style.transform = `translateX(${-slideIndex * slideWidth}px)`;
+
+            setTimeout(() => {
+                slideIndex++;
+                showSlides();
+            }, 3000); // Cambia la imagen cada 2 segundos
+        }
+
+        function sendEmail() {
+            var recipient = "paulinavergara895@gmail.com"; // Cambia esto con el correo deseado
+            var subject = "Asunto del correo";
+            var body = "Este es el cuerpo del correo.";
+
+            var mailto_link = "mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+            window.location.href = mailto_link;
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2024</p>
+    </footer>
+</body>
+</html>
